@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, DestroyRef,  OnInit,  } from '@angular/core';
 
 @Component({
   selector: 'app-server',
@@ -7,18 +7,19 @@ import { Component } from '@angular/core';
   templateUrl: './server.component.html',
   styleUrl: './server.component.css'
 })
-export class ServerComponent {
+export class ServerComponent implements OnInit {
 
 
   currentStatus: string = '';
+  
 
 
-  constructor() {}
+  constructor(private destroy: DestroyRef) {}
 
 
   ngOnInit(){
 
-     setInterval(()=>{
+    const interval = setInterval(()=>{
       const randomValue = Math.random();
       if(randomValue < 0.5){
         this.currentStatus = 'online';
@@ -30,6 +31,18 @@ export class ServerComponent {
       console.log(randomValue)
     }, 5000)  
 
+    this.destroy.onDestroy(()=>{
+      clearInterval(interval);
+    })
+
+  
   }
+
+
+  ngAfterViewInit(){
+
+  }
+
+ 
 
 }
