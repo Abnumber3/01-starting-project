@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, Component, DestroyRef,  OnInit,  } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, DestroyRef,  OnInit, signal } from '@angular/core';
 
 @Component({
   selector: 'app-server',
@@ -10,7 +10,7 @@ import { AfterContentInit, AfterViewInit, Component, DestroyRef,  OnInit,  } fro
 export class ServerComponent implements OnInit {
 
 
-  currentStatus: string = '';
+  currentStatus= signal<string>('offline');
   
 
 
@@ -22,11 +22,11 @@ export class ServerComponent implements OnInit {
     const interval = setInterval(()=>{
       const randomValue = Math.random();
       if(randomValue < 0.5){
-        this.currentStatus = 'online';
+        this.currentStatus.set('online');
       } else if (randomValue < 0.8){
-        this.currentStatus = 'offline';
+        this.currentStatus.set('offline')
       } else {
-        this.currentStatus = 'unknown';
+        this.currentStatus.set('unknown');
       }
       console.log(randomValue)
     }, 5000)  
