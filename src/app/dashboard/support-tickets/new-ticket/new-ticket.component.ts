@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 export class NewTicketComponent  {
 
 @ViewChild('form') form?: ElementRef<HTMLFormElement>;
+@Output() add = new EventEmitter();
 
 
   onSubmit(title: string, request: string){
