@@ -11,10 +11,11 @@ import { FormsModule } from '@angular/forms';
 export class NewTicketComponent  {
 
 @ViewChild('form') form?: ElementRef<HTMLFormElement>;
-@Output() add = new EventEmitter();
+@Output() add = new EventEmitter<{title:string; text:string}>();
 
 
   onSubmit(title: string, request: string){
+    this.add.emit({title: title, text: request})
     console.log('Title: ', title, 'Request: ', request)
     this.form?.nativeElement.reset();
   }

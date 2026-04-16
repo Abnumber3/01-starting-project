@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Ticket } from '../ticket.model';
+import { NewTicketComponent } from '../new-ticket/new-ticket.component';
 
 @Component({
   selector: 'app-ticket',
@@ -10,8 +11,5 @@ import { Ticket } from '../ticket.model';
 })
 export class TicketComponent {
 
-  tickets: Ticket[]=[]
-
-
-
+ 
 }
