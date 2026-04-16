@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Ticket } from '../ticket.model';
-import { NewTicketComponent } from '../new-ticket/new-ticket.component';
+
 
 @Component({
   selector: 'app-ticket',
@@ -11,5 +11,13 @@ import { NewTicketComponent } from '../new-ticket/new-ticket.component';
 })
 export class TicketComponent {
 
+  @Input({required: true }) data!: Ticket
+  @Output() completed = new EventEmitter<string>();
+
+
+
+  onComplete(){
+    this.completed.emit(this.data.id);
+  }
  
 }

@@ -15,6 +15,7 @@ export class NewTicketComponent  {
 
 
   onSubmit(title: string, request: string){
+    if(!title || !request) return;
     this.add.emit({title: title, text: request})
     console.log('Title: ', title, 'Request: ', request)
     this.form?.nativeElement.reset();

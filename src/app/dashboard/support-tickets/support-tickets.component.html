@@ -1,14 +1,17 @@
     <div class="dashboard-item">
-      <article>
-        <header>
+      <header>
           <img src="list.png" alt="A list of items" />
-          <h2>Support Tickets</h2>
+          <h2 class="title">Support Tickets</h2>
         </header>
+      <article>
          <div id="tickLoop">
           <ul>
             @for (ticket of tickets; track ticket.id){
             <li>
-              <app-ticket></app-ticket>
+              <app-ticket
+              [data]="ticket"
+              (completed)="onCompleteTicket($event)"
+              ></app-ticket>
             </li>
           } @empty {
             <p>No tickets available</p>

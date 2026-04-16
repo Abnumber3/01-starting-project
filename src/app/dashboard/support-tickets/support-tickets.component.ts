@@ -14,6 +14,8 @@ export class SupportTicketsComponent {
 
  tickets: Ticket[]=[]
 
+
+
   onAddTicket(ticket: {title: string; text: string}){
     const newTicket : Ticket ={
       title: ticket.title,
@@ -23,6 +25,11 @@ export class SupportTicketsComponent {
     }
    this.tickets = [...this.tickets, newTicket]
 
+  }
+
+  onCompleteTicket(dataId: string){
+    this.tickets = this.tickets.filter(t=> t.id !== dataId)
+    console.log('Ticket completed : ' + dataId)
   }
 
 

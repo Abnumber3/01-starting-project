@@ -1,5 +1,11 @@
-#tickLoop{
-    display: flex;
-  gap: 2rem;
-  align-items: flex-start;
+
+
+article {
+ display: flex;
+ gap: 1rem;
+}
+
+.title {
+ font-size: 1.5rem;
+ text-align: right;
 }
