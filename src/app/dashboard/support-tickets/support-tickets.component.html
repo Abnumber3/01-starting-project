@@ -3,8 +3,8 @@
           <img src="list.png" alt="A list of items" />
           <h2 class="title">Support Tickets</h2>
         </header>
-      <article>
-         <div id="tickLoop">
+      <article class="ticketContent">
+         <div class="tickLoop">
           <ul>
             @for (ticket of tickets; track ticket.id){
             <li>
@@ -14,7 +14,7 @@
               ></app-ticket>
             </li>
           } @empty {
-            <p>No tickets available</p>
+            <p class="ticketTitle">No tickets available</p>
           }
           </ul>
         </div>

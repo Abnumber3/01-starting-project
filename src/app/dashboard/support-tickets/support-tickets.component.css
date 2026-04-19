@@ -9,3 +9,18 @@ article {
  font-size: 1.5rem;
  text-align: right;
 }
+
+.ticketLoop{
+  width: 700px;
+  background-color: blue;
+}
+
+li {
+  list-style: none;
+  width: 200px;
+}
+
+.ticketTitle{
+  text-align: center;
+  
+}

@@ -29,6 +29,8 @@ export class SupportTicketsComponent {
 
   onCompleteTicket(dataId: string){
     this.tickets = this.tickets.filter(t=> t.id !== dataId)
+    
+  
     console.log('Ticket completed : ' + dataId)
   }
 
